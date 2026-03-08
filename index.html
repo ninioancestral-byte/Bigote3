@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>Live Stream</title>
 <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
 
 body{
@@ -86,7 +86,12 @@ placeholder="Escribe un mensaje..."
 </div>
 
 <script>
+const { createClient } = supabase
 
+const supabaseClient = createClient(
+"https://sujppiucdbfjfjlddegt.supabase.co",
+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN1anBwaXVjZGJmamZqbGRkZWd0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMwMDkwMjMsImV4cCI6MjA4ODU4NTAyM30.wHF8qkpLIOn85nmqmtMygHQwkwKFOBo3MNjpqsDUypA"
+)
 const playbackId = "7n01hqYvo3zuQfFKBo02w1r6WSD102TMggq2Egd7xoa02vQ"
 
 const video = document.getElementById("video")
@@ -135,4 +140,5 @@ input.value = ""
 
 </body>
 </html>
+
 
