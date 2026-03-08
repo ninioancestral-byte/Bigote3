@@ -114,13 +114,19 @@ video.src = videoSrc
 const input = document.getElementById("chatInput")
 const messages = document.getElementById("messages")
 
-input.addEventListener("keydown", function(e){
+input.addEventListener("keydown", async function(e){
 
 if(e.key === "Enter"){
 
 const text = input.value.trim()
 
 if(text === "") return
+
+const { data, error } = await supabaseClient
+.from("bigote-stream")
+.insert([{ username:"user", message:text }])
+
+console.log("supabase response:", data, error)
 
 const div = document.createElement("div")
 div.className = "message"
@@ -140,5 +146,6 @@ input.value = ""
 
 </body>
 </html>
+
 
 
